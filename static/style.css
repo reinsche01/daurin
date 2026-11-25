@@ -1,0 +1,63 @@
+:root{--bg:#f2f5f3;--ink:#17302e;--mut:#5d716f;--acc:#1f7a5c;--line:#cfdad6;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.5 "Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:28px 5vw 8px}
+h1{margin:0;font-size:2.4rem;letter-spacing:-.02em;color:var(--acc)}
+header p{margin:4px 0 0;color:var(--mut);max-width:60ch}
+main{display:grid;grid-template-columns:1.6fr 1fr;gap:20px;padding:16px 5vw 40px}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.lebar{grid-column:1/-1}
+h2{margin:0 0 10px;font-size:1.1rem}
+#map{height:430px;border-radius:8px}
+label{display:block;margin:10px 0;font-size:.9rem;color:var(--mut)}
+input,select{display:block;width:100%;margin-top:4px;padding:8px;border:1px solid var(--line);border-radius:6px;font:inherit;color:var(--ink)}
+button{padding:9px 14px;border:0;border-radius:6px;background:var(--acc);color:#fff;font:inherit;cursor:pointer;margin-top:6px}
+button.sekunder{background:#fff;color:var(--acc);border:1px solid var(--acc);margin:10px 0 18px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #8fd3b8;outline-offset:2px}
+.kecil{font-size:.85rem;color:var(--mut);margin:6px 0}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.stat{border:1px solid var(--line);border-radius:8px;padding:12px}
+.stat b{display:block;font-size:1.5rem;color:var(--acc)}
+.stat span{font-size:.85rem;color:var(--mut)}
+
+/* === Kartu Pelestari === */
+#tugas-wrap{display:flex;flex-direction:column;gap:14px}
+.pelestari-card{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.pelestari-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#f8faf9;gap:16px;flex-wrap:wrap}
+.pelestari-info{display:flex;flex-direction:column;gap:2px}
+.pelestari-nama{font-weight:700;font-size:1rem}
+.pelestari-meta{font-size:.82rem;color:var(--mut)}
+.pelestari-progress-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:4px;min-width:140px}
+.pelestari-persen{font-size:.8rem;color:var(--mut)}
+.pelestari-bar{width:140px;height:7px;background:#e2eae7;border-radius:99px;overflow:hidden}
+.pelestari-bar-fill{height:100%;border-radius:99px;transition:width .4s}
+.pelestari-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+.btn-rute{margin:0;padding:5px 12px;font-size:.8rem;border-radius:6px;background:#fff;border:1.5px solid;cursor:pointer;font:inherit;transition:background .15s}
+.btn-rute:hover{background:#f0faf5}
+.pelestari-card.aktif{box-shadow:0 0 0 2.5px currentColor;outline:2px solid #1f7a5c33}
+.pelestari-card.aktif .pelestari-header{background:#f0faf6}
+.pelestari-card.aktif .btn-rute{background:#e8f5ef}
+.pelestari-rows{display:flex;flex-direction:column}
+.tugas-row{display:grid;grid-template-columns:36px 90px 1fr 80px 110px;align-items:center;gap:8px;padding:9px 16px;border-top:1px solid var(--line);font-size:.88rem;transition:background .2s}
+.tugas-row:hover{background:#f4f8f6}
+.tugas-row.selesai{opacity:.5;text-decoration:line-through}
+.urutan-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:.8rem;font-weight:700}
+.tugas-koordinat{font-size:.75rem;color:var(--mut);font-weight:400;display:block;line-height:1.2}
+.tugas-id{font-weight:600;color:var(--ink);line-height:1.4}
+.tugas-legend{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:8px 12px;background:#f0faf6;border-radius:8px;font-size:.8rem;color:var(--mut);margin-bottom:10px}
+.legend-sep{color:var(--line)}
+.tugas-jenis{color:var(--mut)}
+.tugas-berat{font-weight:600}
+.btn-status{margin:0;padding:5px 12px;font-size:.8rem;border-radius:6px}
+.btn-selesai{background:#e8f5ef;color:var(--acc);border:1px solid #a8d9c3}
+.btn-status:not(.btn-selesai){background:var(--acc);color:#fff;border:0}
+
+@media(max-width:800px){
+  main{grid-template-columns:1fr}
+  .tugas-row{grid-template-columns:30px 1fr 1fr;grid-template-rows:auto auto}
+  .tugas-id{grid-column:2};.tugas-berat{text-align:right}
+  .btn-status{grid-column:1/-1}
+}

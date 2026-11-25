@@ -1,0 +1,60 @@
+r
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daurin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Daurin</h1>
+        <p>Kelompokkan titik jemput sampah, pangkas jarak tempuh pelestari.</p>
+    </header>
+    <main>
+        <section class="peta">
+            <div id="map" data-lat="{{ center[0] }}" data-lon="{{ center[1] }}"></div>
+            <p id="info" class="kecil"></p>
+        </section>
+        <section class="panel">
+            <h2>Request jemput sampah</h2>
+            <p class="kecil">Klik peta untuk memilih lokasi jemput.</p>
+            <form id="form">
+                <label>Lokasi <input id="lokasi" readonly placeholder="Belum dipilih di peta" required></label>
+                <label>Jenis sampah <select id="jenis">
+                        <option>plastik</option>
+                        <option>kertas</option>
+                        <option>kaca</option>
+                        <option>logam</option>
+                        <option>elektronik</option>
+                    </select></label>
+                <label>Estimasi berat (kg) <input id="berat" type="number" min="0.1" step="0.1" value="2"
+                        required></label>
+                <button>Kirim request</button>
+            </form>
+            <button id="tambah" class="sekunder">Tambah 20 data simulasi</button>
+            <h2>Bagi Tugas Penjemputan</h2>
+            <label>Jumlah petugas jemput <input id="k" type="number" min="2" max="10" value="4"></label>
+            <button id="jalankan">Mulai Pembagian Tugas</button>
+            <p id="pesan" class="kecil"></p>
+        </section>
+        <section class="lebar">
+            <h2>Daftar tugas pelestari</h2>
+            <div id="tugas-wrap">
+                <p class="kecil">Tekan tombol di bawah untuk membagi tugas ke tiap petugas jemput secara otomatis.</p>
+            </div>
+        </section>
+        <section class="lebar">
+            <h2>Dampak dan poin</h2>
+            <div id="dash" class="grid"></div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
